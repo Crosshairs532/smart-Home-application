@@ -9,23 +9,28 @@ import About from './components/About/About';
 import Testimonial from './components/Testimonial/Testimonial';
 import Contact from './components/Contact/Contact';
 import Authprovider from './AuthProvider/Authprovider';
-import Allphone from './components/allphone/Allphone';
-
+// import Allphone from './components/allphone/Allphone';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
     errorElement: <Error></Error>,
     children: [
+
       {
         path: '/',
-        element: <Home></Home>,
-        children: [
-          {
-            path: '/',
-            element: <Allphone></Allphone>
-          }
-        ]
+        element: <Register />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      }
+      ,
+      {
+        path: '/home',
+        element: <Home></Home>
       },
       {
         path: '/about',
