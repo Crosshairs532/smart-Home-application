@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 const Banner = () => {
     useEffect(() => {
         AOS.init();
-        console.log('effect')
     }, [])
     return (
         <div className=' '>

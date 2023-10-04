@@ -1,11 +1,20 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../Hook/useAuth";
 
 
 const Header = () => {
-
+    const navigate = useNavigate()
+    const { user, logout } = useAuth()
+    const handlelog = () => {
+        logout()
+            .then(() => {
+                console.log('logged out', user)
+                navigate('/login')
+            })
+    }
     const Links =
         <>
-            <li className=""><NavLink to='/'>Home</NavLink></li>
+            <li className=""><NavLink to='/home'>Home</NavLink></li>
             <li className=""><NavLink to='/about'>About</NavLink></li>
             <li className=""><NavLink to='/testimonial'>Testimonials</NavLink></li>
             <li className=""><NavLink to='/contact'>Contact</NavLink></li>
@@ -35,10 +44,10 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <div className=" navbar-center "> <Link to='/' className=" normal-case font-bold text-[white] text-2xl">SmartHome</Link></div>
+                <div className=" navbar-center "> <Link to='/home' className=" normal-case font-bold text-[white] text-2xl">SmartHome</Link></div>
                 <div className="navbar-end gap-4">
-                    <Link className="btn btn-primary">Login</Link>
-                    <Link className="btn btn-[#0D6EFD0D] px-3 py-2 ">Sign Up</Link>
+                    {/* { <Link className="btn btn-primary">Login</Link> */}
+                    <Link onClick={handlelog} className="btn btn-[#0D6EFD0D] px-3 py-2 ">Logout<span>{user.email}</span></Link>
 
                 </div>
             </div>

@@ -8,7 +8,7 @@ const Allphone = () => {
             easing: 'ease-in',
             aos: 'fade-up'
         });
-        console.log('effect')
+        // console.log('effect')
     }, [])
     return (
         <div className=' mt-[400px] mb-[400px] border-red-500 container m-auto flex flex-col items-center gap-4' data-aos="fade-up">
